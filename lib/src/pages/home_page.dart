@@ -19,17 +19,26 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.search),
               onPressed: () {
                 showSearch(
-                  context: context, 
-                  delegate: new DataSearch(),
-                  query: 'Hola'
-                );
+                    context: context,
+                    delegate: new DataSearch(),
+                    query: 'Hola');
               }),
         ],
       ),
       body: Container(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[_swiperTarjetas(), _footer(context)],
+          child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            SizedBox(height: 10,),
+            _swiperTarjetas(), 
+              SizedBox(height: 40,),
+            _footer(context),
+      
+
+          ],
+        ),
       )),
     );
   }
